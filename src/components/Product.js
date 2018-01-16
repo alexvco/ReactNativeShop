@@ -10,7 +10,7 @@ export default class Product extends Component<{}> {
   render() {
     return (
       <View>
-        <Text style={style.textStyle}>Android</Text>
+        <Text style={style.textStyle}>{this.props.name}</Text>
         <Button title="Buy" onPress={this.show} />
       </View>
     );
@@ -23,3 +23,5 @@ const style = StyleSheet.create({
     padding: 20
   }
 });
+
+// Pass data from parent to child component

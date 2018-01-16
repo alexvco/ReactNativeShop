@@ -14,9 +14,9 @@ export default class App extends Component<{}> {
   render() {
     return (
       <View>
-        <Product />
-        <Product />
-        <Product />
+        <Product name="Android" />
+        <Product name="Nokia" />
+        <Product name="iPhone" />
       </View>
     );
   }
