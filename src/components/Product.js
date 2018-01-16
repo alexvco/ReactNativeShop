@@ -3,6 +3,21 @@ import { StyleSheet, Text, Button, View, Alert } from 'react-native';
 
 export default class Product extends Component<{}> {
 
+  state = {
+    amount: 0
+  }
+
+  // this inside the amount is not binded in the following
+  // buy() {
+  //   this.setState({
+  //     amount: this.state.amount + 1
+  //   })
+  // }
+
+  buy = () => this.setState({
+    amount: this.state.amount + 1
+  })
+
   show() {
     Alert.alert("You clicked me")
   }
@@ -11,7 +26,8 @@ export default class Product extends Component<{}> {
     return (
       <View>
         <Text style={style.textStyle}>{this.props.name}</Text>
-        <Button title="Buy" onPress={this.show} />
+        <Text style={style.textStyle}>Amount: {this.state.amount}</Text>
+        <Button title="Buy" onPress={this.buy} />
       </View>
     );
   }
@@ -23,5 +39,3 @@ const style = StyleSheet.create({
     padding: 20
   }
 });
-
-// Pass data from parent to child component
