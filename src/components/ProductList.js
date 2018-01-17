@@ -1,29 +1,28 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import Product from './Product';
 
 
 export default class ProductList extends Component<{}> {
 
   state = {
-    products: [
-      {
-        "id": 1,
-        "name": "Android"
-      },
-      {
-        "id": 2,
-        "name": "Nokia"
-      },
-      {
-        "id": 3,
-        "name": "iPhone"
-      },
-    ]
+    products: []
+  }
+
+  // This method will be called as soon as the render method is executed, 
+  // basically it renders the component first and then you fetch the data from API
+  componentDidMount() {
+    return fetch('http://demo1552422.mockable.io/mobile')
+    .then((response) =>
+      response.json()
+    )
+    .then((responseJson) => 
+    {
+      this.setState({products: responseJson})
+    })
   }
 
   render() {
-
     var productList = this.state.products.map(function(product){
       return (
         <Product name={product.name} key={product.id} /> 
@@ -31,9 +30,9 @@ export default class ProductList extends Component<{}> {
     })
 
     return (
-      <View>
+      <ScrollView>
         {productList}
-      </View>
+      </ScrollView>
     );
   }
 }
