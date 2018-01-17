@@ -6,18 +6,14 @@
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-import Product from './src/components/Product';
+import ProductList from './src/components/ProductList';
 
 
 
 export default class App extends Component<{}> {
   render() {
     return (
-      <View>
-        <Product name="Android" />
-        <Product name="Nokia" />
-        <Product name="iPhone" />
-      </View>
+      <ProductList />
     );
   }
 }
